@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Layout } from "../components/Layout"
 import { useAuth } from "../context/UserContext"
+import { SearchBar } from "../components/SearchBar"
 
 const Home = () => {
 
@@ -90,6 +91,7 @@ const Home = () => {
       <section>
         <h1>Bienvenido a Nuestra Tienda</h1>
         <p>Descubrí una selección exclusiva de productos para vos. Calidad, confianza y atención personalizada.</p>
+        <SearchBar />
       </section>
 
       <section>
