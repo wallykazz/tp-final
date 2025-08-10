@@ -13,7 +13,6 @@ const RouterApp = () => {
   return (
     <UserProvider>
       <BrowserRouter>
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
