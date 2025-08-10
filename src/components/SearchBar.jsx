@@ -40,10 +40,11 @@ const SearchBar = () => {
       <ul>
         {filteredResults.length > 0 ? (
           filteredResults.map((producto) => (
-            <li key={producto.id}>
+            <li key={producto.id} style={{ marginBottom: '1rem', listStyle: 'none' }}>
               <img
                 src={producto.image}
                 alt={producto.title}
+                style={{ width: '100px', height: 'auto', marginRight: '10px' }}
               />
               <span>{producto.title}</span>
             </li>
