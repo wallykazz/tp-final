@@ -1,80 +1,42 @@
-import { useState } from "react"
-import { Layout } from "../components/Layout"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 
-const Register = () => {
-  const [username, setUsername] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
-  const [success, setSuccess] = useState("")
+export const Register = () => {
+  const { register } = useUser();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setError("")
-    setSuccess("")
+  const [formData, setFormData] = useState({ username: "", email: "", password: "" });
+  const [message, setMessage] = useState("");
 
-    if (!username || !email || !password) {
-      setError("Debes completar todos los campos")
-      return
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const success = await register(formData.username, formData.password, formData.email);
+    if (success) {
+      setMessage("Registro exitoso.");
+      navigate("/");
+    } else {
+      setMessage("Error en el registro.");
     }
-
-    const newUser = {
-      username,
-      email,
-      password
-    }
-
-    console.log(newUser)
-    setSuccess("Usuario registrado con éxito")
-
-    setUsername("")
-    setEmail("")
-    setPassword("")
-  }
+  };
 
   return (
-    <Layout>
-      <h1>Registrate</h1>
-
-      <section>
-        <h2>Hola, bienvenido</h2>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Username:</label>
-            <input
-              type="text"
-              onChange={(e) => setUsername(e.target.value)}
-              value={username}
-            />
-          </div>
-          <div>
-            <label>Correo electrónico:</label>
-            <input
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-          </div>
-          <div>
-            <label>Contraseña:</label>
-            <input
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-          </div>
-          <button>Ingresar</button>
-        </form>
-
-        {
-          error && <p style={{ color: "red" }}>{error}</p>
-        }
-        {
-          success && <p style={{ color: "green" }}>{success}</p>
-        }
-      </section>
-    </Layout>
-  )
-}
-
-export { Register }
+    <div>
+      <h2>Formulario de Registro</h2>
+      <form onSubmit={handleSubmit}>
+        <label>Usuario:</label>
+        <input type="text" name="username" onChange={handleChange} required />
+        <label>Email:</label>
+        <input type="email" name="email" onChange={handleChange} required />
+        <label>Contraseña:</label>
+        <input type="password" name="password" onChange={handleChange} required />
+        <button type="submit">Registrarse</button>
+      </form>
+      <p>{message}</p>
+    </div>
+  );
+};

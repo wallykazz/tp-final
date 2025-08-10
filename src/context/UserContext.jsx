@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react"
 
-const UserContext = createContext()
+export const UserContext = createContext()
 
 const UserProvider = (props) => {
   const [user, setUser] = useState(null)
@@ -24,12 +24,36 @@ const UserProvider = (props) => {
     }
   }
 
+  const register = async (username, password, email) => {
+    try {
+      const response = await fetch("https://fakestoreapi.com/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: 0,
+          username,
+          password,
+          email
+        })
+      });
+
+      if (!response.ok) throw new Error("Registro fallido");
+
+      const data = await response.json();
+      setUser(true); // simula inicio de sesion
+      console.log("✅ Usuario registrado con éxito:", data);
+      return true;
+    } catch (error) {
+      console.error("❌ Error en el registro:", error);
+      return false;
+    }
+  };
   const logout = () => {
     setUser(null)
   }
 
   return (
-    <UserContext.Provider value={{ login, logout, user }}>
+    <UserContext.Provider value={{ login, logout, user, register }}>
       {props.children}
     </UserContext.Provider>
   )
@@ -38,3 +62,4 @@ const UserProvider = (props) => {
 const useAuth = () => useContext(UserContext)
 
 export { UserProvider, useAuth }
+export const useUser = () => useContext(UserContext);

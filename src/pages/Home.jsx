@@ -3,6 +3,7 @@ import { Layout } from "../components/Layout"
 import { useAuth } from "../context/UserContext"
 
 const Home = () => {
+
   const [products, setProducts] = useState([])
   const [showPopup, setShowPopup] = useState(null)
   const [productToEdit, setProductToEdit] = useState(null)
@@ -34,6 +35,7 @@ const Home = () => {
       // fetchingProducts()
     }
   }
+
 
   const handleOpenEdit = (product) => {
     setShowPopup(true)
@@ -104,6 +106,7 @@ const Home = () => {
           <li>
             <h3>Atención personalizada</h3>
             <p>Estamos disponibles para ayudarte en todo momento.</p>
+
           </li>
         </ul>
       </section>
@@ -111,6 +114,7 @@ const Home = () => {
       <section>
         <h2>Nuestros productos</h2>
         <p>Elegí entre nuestras categorías más populares.</p>
+
 
 
         {
