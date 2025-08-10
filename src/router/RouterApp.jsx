@@ -6,6 +6,8 @@ import { Register } from "../pages/Register"
 import { NotFound } from "../pages/NotFound"
 import { PrivateRoute } from "../components/PrivateRoute"
 import { UserProvider } from "../context/UserContext"
+import { AboutUs } from "../pages/AboutUs"
+
 
 const RouterApp = () => {
   return (
@@ -15,6 +17,7 @@ const RouterApp = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registrate" element={<Register />} />
           <Route path="*" element={<NotFound />} />

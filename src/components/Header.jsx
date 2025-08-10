@@ -17,12 +17,14 @@ const Header = () => {
           {
             user && <>
               <li><Link to="/">Inicio</Link></li>
+              <li><Link to="/about-us">Sobre nosotros</Link></li>
               <li><Link to="/dashboard">Dashboard</Link></li>
               <button onClick={handleLogout}>Cerrar sesión</button>
             </>
           }
           {
             !user && <>
+              <li><Link to="/about-us">Sobre nosotros</Link></li>
               <li><Link to="/login">Login</Link></li>
               <li><Link to="/registrate">Registrate</Link></li>
             </>
