@@ -1,49 +1,56 @@
-import { useState } from 'react';
-
-const mockProducts = [
-  { id: 1, nombre: "F" },
-  { id: 2, nombre: "Mens Cotton Jacket" },
-  { id: 3, nombre: "Mens Casual Slim Fit" },
-  { id: 4, nombre: "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet" },
-  { id: 5, nombre: "Solid Gold Petite Micropave" },
-  { id: 6, nombre: "White Gold Plated Princess" },
-  { id: 7, nombre: "Pierced Owl Rose Gold Plated Stainless Steel Double" },
-  { id: 8, nombre: "WD 2TB Elements Portable External Hard Drive - USB 3.0" },
-
-
-];
+import { useState, useEffect } from 'react';
 
 const SearchBar = () => {
+  const [productos, setProductos] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredResults, setFilteredResults] = useState(mockProducts);
+  const [filteredResults, setFilteredResults] = useState([]);
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then((res) => res.json())
+      .then((data) => {
+        setProductos(data);
+        setFilteredResults(data);
+      })
+      .catch((error) => console.error('Error al cargar productos:', error));
+  }, []);
 
   const handleSearch = (e) => {
     const value = e.target.value.toLowerCase();
     setSearchTerm(value);
 
-    const results = mockProducts.filter((product) =>
-      product.title?.toLowerCase().includes(value)
+    const results = productos.filter((producto) =>
+      producto.title?.toLowerCase().includes(value)
     );
 
     setFilteredResults(results);
   };
 
-
   return (
     <div>
-      <h1>Buscar Productos</h1>
+      <h2>Buscar Productos</h2>
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Buscar por nombre..."
         value={searchTerm}
         onChange={handleSearch}
+        style={{ padding: '8px', width: '300px', marginBottom: '1rem' }}
       />
 
       <ul>
-        {filteredResults.map((product) => (
-          <li key={product.id}>{product.name}</li>
-        ))}
-        {filteredResults.length === 0 && <p>No se encontraron productos.</p>}
+        {filteredResults.length > 0 ? (
+          filteredResults.map((producto) => (
+            <li key={producto.id}>
+              <img
+                src={producto.image}
+                alt={producto.title}
+              />
+              <span>{producto.title}</span>
+            </li>
+          ))
+        ) : (
+          <p>No se encontraron productos.</p>
+        )}
       </ul>
     </div>
   );
