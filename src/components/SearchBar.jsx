@@ -1,10 +1,16 @@
 import { useState } from 'react';
 
 const mockProducts = [
-  { id: 1, nombre: "" },
-  { id: 2, nombre: "" },
-  { id: 3, nombre: "" },
-  { id: 4, nombre: "" },
+  { id: 1, nombre: "F" },
+  { id: 2, nombre: "Mens Cotton Jacket" },
+  { id: 3, nombre: "Mens Casual Slim Fit" },
+  { id: 4, nombre: "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet" },
+  { id: 5, nombre: "Solid Gold Petite Micropave" },
+  { id: 6, nombre: "White Gold Plated Princess" },
+  { id: 7, nombre: "Pierced Owl Rose Gold Plated Stainless Steel Double" },
+  { id: 8, nombre: "WD 2TB Elements Portable External Hard Drive - USB 3.0" },
+
+
 ];
 
 const SearchBar = () => {
@@ -16,11 +22,12 @@ const SearchBar = () => {
     setSearchTerm(value);
 
     const results = mockProducts.filter((product) =>
-      product.name.toLowerCase().includes(value)
+      product.title?.toLowerCase().includes(value)
     );
 
     setFilteredResults(results);
   };
+
 
   return (
     <div>
