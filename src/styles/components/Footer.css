@@ -1,0 +1,40 @@
+.main-footer {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-size: 1rem;
+  margin-top: 4rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.main-footer a.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.main-footer a.github-link:hover {
+  color: #d0ffd0;
+}
+
+.github-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  filter: brightness(0) invert(1);
+}
+
+.github-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 0.3rem;
+}
