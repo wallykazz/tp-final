@@ -4,10 +4,13 @@
   box-sizing: border-box;
 }
 
-body,
-html {
+
+body {
   margin: 0;
   padding: 0;
+  background: linear-gradient(135deg, #5a68f6, #6dd5ed);
+  min-height: 100vh;
+
 }
 
 .red {

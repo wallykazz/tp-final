@@ -29,7 +29,8 @@ const Login = () => {
 
       <section>
         <h2>Hola, bienvenido de nuevo</h2>
-        <p>johnd, m38rmF$</p>
+        <p>Usuario: johnd</p>
+        <p>Contraseña: m38rmF$</p>
         <form onSubmit={handleLogin}>
           <div>
             <label>Nombre de usuario:</label>
