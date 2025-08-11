@@ -41,6 +41,7 @@ const Header = () => {
             </>
           ) : (
             <>
+              <li><Link to="/">Inicio</Link></li>
               <Link to="/about-us" onClick={closeMenu}>Sobre nosotros</Link>
               <Link to="/login" onClick={closeMenu}>Login</Link>
               <Link to="/registrate" onClick={closeMenu}>Regístrate</Link>
@@ -60,6 +61,7 @@ const Header = () => {
               </>
             ) : (
               <>
+                <li><Link to="/">Inicio</Link></li>
                 <li><Link to="/about-us">Sobre nosotros</Link></li>
                 <li><Link to="/login">Login</Link></li>
                 <li><Link to="/registrate">Regístrate</Link></li>
