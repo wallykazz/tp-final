@@ -88,13 +88,13 @@ const Home = () => {
 
   return (
     <Layout>
-      <section>
+      <section class="about-section welcome-section">
         <h1>Bienvenido a Nuestra Tienda</h1>
         <p>Descubrí una selección exclusiva de productos para vos. Calidad, confianza y atención personalizada.</p>
-        <SearchBar />
       </section>
+      <SearchBar />
 
-      <section>
+      <section class="about-section why-choose-us">
         <h2>¿Por qué elegirnos?</h2>
         <ul>
           <li>
@@ -108,7 +108,6 @@ const Home = () => {
           <li>
             <h3>Atención personalizada</h3>
             <p>Estamos disponibles para ayudarte en todo momento.</p>
-
           </li>
         </ul>
       </section>
