@@ -28,14 +28,14 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
-      <h2>Buscar Productos</h2>
+    <div className="searchbar-container">
+      <h1 className="searchbar-title">Buscar Productos</h1>
       <input
         type="text"
         placeholder="Buscar por nombre..."
         value={searchTerm}
         onChange={handleSearch}
-        style={{ padding: '8px', width: '300px', marginBottom: '1rem' }}
+        className="searchbar-input"
       />
 
       <div className="product-grid">
@@ -49,11 +49,11 @@ const SearchBar = () => {
             </div>
           ))
         ) : (
-          <p>No se encontraron productos.</p>
+          <p className="no-results">No se encontraron productos.</p>
         )}
       </div>
     </div>
   );
 };
 
-export { SearchBar }
+export { SearchBar };
