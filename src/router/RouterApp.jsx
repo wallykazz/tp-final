@@ -12,7 +12,10 @@ import { AboutUs } from "../pages/AboutUs"
 const RouterApp = () => {
   return (
     <UserProvider>
+
+      <div style={{ padding: '20px' }}></div>
       <BrowserRouter>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
