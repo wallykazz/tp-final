@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserContext";
 import "../styles/pages/Register.css"
-
+import { Layout } from "../components/Layout"
 export const Register = () => {
   const { register } = useUser();
   const navigate = useNavigate();
@@ -26,24 +26,26 @@ export const Register = () => {
   };
 
   return (
-    <div className="register-container">
-      <h1>Registrarse</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Usuario:</label>
-          <input type="text" name="username" onChange={handleChange} required />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input type="email" name="email" onChange={handleChange} required />
-        </div>
-        <div>
-          <label>Contraseña:</label>
-          <input type="password" name="password" onChange={handleChange} required />
-        </div>
-        <button type="submit">Registrarse</button>
-      </form>
-      {message && <p className="register-message">{message}</p>}
-    </div>
+    <Layout>
+      <div className="register-container">
+        <h1>Registrarse</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Usuario:</label>
+            <input type="text" name="username" onChange={handleChange} required />
+          </div>
+          <div>
+            <label>Email:</label>
+            <input type="email" name="email" onChange={handleChange} required />
+          </div>
+          <div>
+            <label>Contraseña:</label>
+            <input type="password" name="password" onChange={handleChange} required />
+          </div>
+          <button type="submit">Registrarse</button>
+        </form>
+        {message && <p className="register-message">{message}</p>}
+      </div>
+    </Layout>
   );
 };
