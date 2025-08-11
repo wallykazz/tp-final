@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserContext";
+import "../styles/pages/Register.css"
 
 export const Register = () => {
   const { register } = useUser();
@@ -17,26 +18,32 @@ export const Register = () => {
     e.preventDefault();
     const success = await register(formData.username, formData.password, formData.email);
     if (success) {
-      setMessage("Registro exitoso.");
-      navigate("/");
+      setMessage("✅ Registro exitoso.");
+      setTimeout(() => navigate("/"), 1500);
     } else {
-      setMessage("Error en el registro.");
+      setMessage("❌ Error en el registro.");
     }
   };
 
   return (
-    <div>
-      <h2>Formulario de Registro</h2>
+    <div className="register-container">
+      <h1>Registrarse</h1>
       <form onSubmit={handleSubmit}>
-        <label>Usuario:</label>
-        <input type="text" name="username" onChange={handleChange} required />
-        <label>Email:</label>
-        <input type="email" name="email" onChange={handleChange} required />
-        <label>Contraseña:</label>
-        <input type="password" name="password" onChange={handleChange} required />
+        <div>
+          <label>Usuario:</label>
+          <input type="text" name="username" onChange={handleChange} required />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input type="email" name="email" onChange={handleChange} required />
+        </div>
+        <div>
+          <label>Contraseña:</label>
+          <input type="password" name="password" onChange={handleChange} required />
+        </div>
         <button type="submit">Registrarse</button>
       </form>
-      <p>{message}</p>
+      {message && <p className="register-message">{message}</p>}
     </div>
   );
 };

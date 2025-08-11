@@ -1,0 +1,93 @@
+.register-container {
+  max-width: 400px;
+  margin: 5rem auto 2rem auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: #333;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.register-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+form input {
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+form button {
+  padding: 0.75rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #43a047;
+}
+
+.register-message {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  text-align: center;
+  font-weight: 500;
+  color: #4CAF50;
+}
+
+.register-message:contains("Error") {
+  color: #d32f2f;
+}
+
+@media (max-width: 480px) {
+  .register-container {
+    padding: 1.5rem;
+    margin-top: 80px;
+  }
+
+  .register-container h1 {
+    font-size: 1.8rem;
+  }
+
+  form button {
+    font-size: 0.95rem;
+  }
+}
