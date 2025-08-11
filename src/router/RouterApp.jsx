@@ -12,8 +12,6 @@ import { AboutUs } from "../pages/AboutUs"
 const RouterApp = () => {
   return (
     <UserProvider>
-
-      <div style={{ padding: '20px' }}></div>
       <BrowserRouter>
 
         <Routes>
