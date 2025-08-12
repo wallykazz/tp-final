@@ -107,6 +107,51 @@
   color: #999;
 }
 
+.product-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.product-actions button {
+  flex: 1;
+  padding: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+.product-actions button:first-child {
+  background-color: #4CAF50;
+}
+
+.product-actions button:first-child:hover {
+  background-color: #388e3c;
+}
+
+
+.product-actions button:last-child {
+  background-color: #f44336;
+}
+
+.product-actions button:last-child:hover {
+  background-color: #d32f2f;
+}
+
+
+.no-results {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 2rem;
+}
+
+
 /* Mobile */
 @media (max-width: 480px) {
   .searchbar-title {
