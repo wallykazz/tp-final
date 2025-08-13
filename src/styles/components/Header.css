@@ -24,13 +24,20 @@
 
 
 .logo {
-  font-weight: 700;
+  display: flex;
+  align-items: center;
   font-size: 1.5rem;
+  font-weight: 700;
   color: #4CAF50;
-
   cursor: default;
+  gap: 0.5rem;
 }
 
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
 
 .desktop-nav ul {
   list-style: none;

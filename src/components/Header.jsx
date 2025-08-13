@@ -21,7 +21,14 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-content">
-        <div className="logo">TIENDA WALDO</div>
+        <div className="logo">
+          <img
+            src="https://png.pngtree.com/png-clipart/20211107/ourmid/pngtree-green-store-png-image_4027065.png"
+            alt="Icono tienda"
+            className="logo-icon"
+          />
+          TIENDA WALDO
+        </div>
 
         {/* Botón hamburguesa */}
         <button className={`hamburger ${menuOpen ? "open" : ""}`} onClick={toggleMenu} aria-label="Menú">
