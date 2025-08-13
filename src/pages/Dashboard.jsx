@@ -56,7 +56,7 @@ const Dashboard = () => {
 
         <div className="form-section">
           <h2>Cargar nuevo producto</h2>
-          <form onSubmit={handleSubmit} className="product-form">
+          <form onSubmit={handleSubmit} className="product-form" autoComplete="off">
             <div className="form-group">
               <label>Nombre del producto:</label>
               <input type="text" name="nombre" onChange={(e) => setName(e.target.value)} value={name} />
