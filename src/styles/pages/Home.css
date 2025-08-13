@@ -24,16 +24,6 @@
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .welcome-section h1 {
-    font-size: 2rem;
-  }
-
-  .welcome-section p {
-    font-size: 1rem;
-  }
-}
-
 .why-choose-us ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -184,7 +174,6 @@
   color: white;
 }
 
-/* Responsive */
 @media (max-width: 480px) {
   .popup-edit {
     padding: 1.5rem;
@@ -201,5 +190,118 @@
 
   .update-btn {
     font-size: 1rem;
+
+
+  }
+
+
+}
+
+/* Escritorio */
+@media (min-width: 881px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 880px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .searchbar-title {
+    font-size: 1.6rem;
+  }
+
+  .product-title {
+    font-size: 1rem;
+  }
+
+  .product-description {
+    font-size: 0.9rem;
+  }
+
+  .product-price {
+    font-size: 1rem;
+  }
+
+  .product-actions button {
+    font-size: 0.9rem;
+  }
+
+  .product-image {
+    max-height: 180px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .popup-edit {
+    padding: 1.5rem;
+  }
+
+  .popup-edit h2 {
+    font-size: 1.5rem;
+  }
+
+  .edit-form input,
+  .edit-form textarea {
+    font-size: 0.95rem;
+  }
+
+  .update-btn {
+    font-size: 1rem;
+  }
+
+  .why-choose-us h3 {
+    font-size: 1rem;
+  }
+
+  .why-choose-us p {
+    font-size: 0.9rem;
+  }
+
+  .why-choose-us li {
+    padding: 1rem;
+  }
+
+  .product-card {
+    padding: 0.8rem;
+  }
+
+  .product-title {
+    font-size: 0.95rem;
+  }
+
+  .product-description {
+    font-size: 0.85rem;
+    height: auto;
+  }
+
+  .product-price {
+    font-size: 1rem;
+  }
+
+  .product-actions button {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+
+  .product-image {
+    max-height: 160px;
+  }
+
+  .searchbar-container {
+    padding: 1rem;
+  }
+
+  .searchbar-input {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.9rem;
   }
 }

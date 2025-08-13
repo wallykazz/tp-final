@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import '../styles/components/SearchBar.css';
+import '../styles/pages/Home.css';
+import "../styles/pages/Home.css"
+
 
 const SearchBar = ({ productos, handleOpenEdit, handleDelete, user }) => {
   const [searchTerm, setSearchTerm] = useState('');
