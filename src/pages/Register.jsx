@@ -14,23 +14,46 @@ export const Register = () => {
     password: "",
   });
 
+  const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const validate = () => {
+    const newErrors = {};
+    const { username, email, password } = formData;
+
+    if (!username.trim()) newErrors.username = "El usuario es obligatorio.";
+    else if (username.length < 3)
+      newErrors.username = "El usuario debe tener al menos 3 caracteres.";
+
+    if (!email.trim()) newErrors.email = "El email es obligatorio.";
+    else if (!/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(email))
+      newErrors.email = "El email no tiene un formato válido.";
+
+    if (!password) newErrors.password = "La contraseña es obligatoria.";
+    else if (password.length < 6)
+      newErrors.password = "La contraseña debe tener al menos 6 caracteres.";
+
+    return newErrors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await register(
-      formData.username,
-      formData.password,
-      formData.email
-    );
+    const validationErrors = validate();
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setErrors({});
+    const success = await register(formData.username, formData.password, formData.email);
 
     if (success) {
       setMessage("✅ Registro exitoso.");
-
       setFormData({ username: "", email: "", password: "" });
 
       setTimeout(() => {
@@ -46,7 +69,7 @@ export const Register = () => {
     <Layout>
       <div className="register-container">
         <h1>Registrarse</h1>
-        <form onSubmit={handleSubmit} autoComplete="off">
+        <form onSubmit={handleSubmit} autoComplete="off" noValidate>
           <div>
             <label>Usuario:</label>
             <input
@@ -55,9 +78,10 @@ export const Register = () => {
               value={formData.username}
               onChange={handleChange}
               autoComplete="off"
-              required
             />
+            {errors.username && <p className="error-message">{errors.username}</p>}
           </div>
+
           <div>
             <label>Email:</label>
             <input
@@ -66,9 +90,10 @@ export const Register = () => {
               value={formData.email}
               onChange={handleChange}
               autoComplete="off"
-              required
             />
+            {errors.email && <p className="error-message">{errors.email}</p>}
           </div>
+
           <div>
             <label>Contraseña:</label>
             <input
@@ -77,11 +102,13 @@ export const Register = () => {
               value={formData.password}
               onChange={handleChange}
               autoComplete="off"
-              required
             />
+            {errors.password && <p className="error-message">{errors.password}</p>}
           </div>
+
           <button type="submit">Registrarse</button>
         </form>
+
         {message && <p className="register-message">{message}</p>}
       </div>
     </Layout>
